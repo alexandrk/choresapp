@@ -1,0 +1,22 @@
+<h1>Child Chores</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Reward Points</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+      <%= render @child_chores %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Child chore', new_child_chore_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="span6 offset3">
+		<div class="well">
+			<p>
+			  <%= @child_chore.description %>
+			</p>
+
+			<p>
+			  <b>Reward Points:</b>
+			  <%= @child_chore.reward_points %>
+			</p>
+			
+			<%= link_to 'Edit', edit_child_chore_path(@child_chore) %> |
+			<%= link_to 'Back', child_chores_path %>
+		</div>
+	</div>
+</div>

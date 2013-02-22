@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212001047) do
+ActiveRecord::Schema.define(:version => 20130222175620) do
+
+  create_table "child_chores", :force => true do |t|
+    t.string   "description"
+    t.integer  "reward_points"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

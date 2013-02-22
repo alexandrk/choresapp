@@ -1,5 +1,8 @@
 Choresapp::Application.routes.draw do
 
+  resources :child_chores
+
+
   devise_for :users
 
   get 'about' => 'Pages#about'
