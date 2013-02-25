@@ -6,13 +6,17 @@
 			<p>
 			  <%= @child_chore.description %>
 			</p>
-
+			<p>
+				<%= @child_chore.user.name %>
 			<p>
 			  <b>Reward Points:</b>
 			  <%= @child_chore.reward_points %>
 			</p>
 			
-			<%= link_to 'Edit', edit_child_chore_path(@child_chore) %> |
+			<% if current_user == @child_chore.user %>
+				<%= link_to 'Edit', edit_child_chore_path(@child_chore) %> |
+			<% end %>
+
 			<%= link_to 'Back', child_chores_path %>
 		</div>
 	</div>

@@ -1,4 +1,7 @@
 class ChildChoresController < ApplicationController
+
+    before_filter :authenticate_user!, except: [:index]
+
   # GET /child_chores
   # GET /child_chores.json
   def index
@@ -24,7 +27,7 @@ class ChildChoresController < ApplicationController
   # GET /child_chores/new
   # GET /child_chores/new.json
   def new
-    @child_chore = ChildChore.new
+    @child_chore = current_user.child_chores.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +43,7 @@ class ChildChoresController < ApplicationController
   # POST /child_chores
   # POST /child_chores.json
   def create
-    @child_chore = ChildChore.new(params[:child_chore])
+    @child_chore = current_user.child_chores.new(params[:child_chore])
 
     respond_to do |format|
       if @child_chore.save
@@ -56,7 +59,7 @@ class ChildChoresController < ApplicationController
   # PUT /child_chores/1
   # PUT /child_chores/1.json
   def update
-    @child_chore = ChildChore.find(params[:id])
+    @child_chore = current_user.child_chores.find(params[:id])
 
     respond_to do |format|
       if @child_chore.update_attributes(params[:child_chore])
@@ -72,7 +75,7 @@ class ChildChoresController < ApplicationController
   # DELETE /child_chores/1
   # DELETE /child_chores/1.json
   def destroy
-    @child_chore = ChildChore.find(params[:id])
+    @child_chore = current_user.child_chores_url.find(params[:id])
     @child_chore.destroy
 
     respond_to do |format|

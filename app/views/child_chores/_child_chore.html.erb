@@ -2,6 +2,9 @@
   <td><%= child_chore.description %></td>
   <td><%= child_chore.reward_points %></td>
   <td><%= link_to 'Show', child_chore %></td>
-  <td><%= link_to 'Edit', edit_child_chore_path(child_chore) %></td>
-  <td><%= link_to 'Destroy', child_chore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+  <% if current_user == child_chore.user %>
+	  <td><%= link_to 'Edit', edit_child_chore_path(child_chore) %></td>
+	  <td><%= link_to 'Destroy', child_chore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>	
 </tr>
